@@ -6,7 +6,8 @@ services:
       context: ./
       dockerfile: build/trufflehog.Dockerfile
     image: 'csalab/trufflehog:latest'
-    entrypoint: ['sleep', '10000000000']
+    networks:
+      sca:
 
   gitleaks:
     hostname: gitleaks.lab
@@ -14,5 +15,9 @@ services:
       context: ./
       dockerfile: build/gitleaks.Dockerfile
     image: 'csalab/gitleaks:latest'
-    entrypoint: ['sleep', '10000000000']
+    networks:
+      sca:
 
+networks:
+  sca:
+    driver: bridge
