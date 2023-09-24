@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  trufflehog:
+    hostname: trufflehog.lab
+    build:
+      context: ./
+      dockerfile: build/trufflehog.Dockerfile
+    image: 'csalab/trufflehog:latest'
+    entrypoint: ['sleep', '10000000000']
+
+  gitleaks:
+    hostname: gitleaks.lab
+    build:
+      context: ./
+      dockerfile: build/gitleaks.Dockerfile
+    image: 'csalab/gitleaks:latest'
+    entrypoint: ['sleep', '10000000000']
+
